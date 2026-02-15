@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Elite Properties</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .personal-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .grid-2 img{
+            width:500px;
+         
+        }
+
+        /* About Page Specific Styles */
+        .mission-section {
+            background: linear-gradient(rgba(26, 54, 93, 0.05), rgba(26, 54, 93, 0.05));
+        }
+
+        .mission-card {
+            background: white;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+        }
+
+        .mission-icon {
+            font-size: 48px;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .team-card {
+            text-align: center;
+            height:500px;
+        }
+        .team-card img{
+            height:250px;
+            width:200px;
+            
+        }
+
+        .team-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: var(--shadow-md);
+        }
+
+        .team-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .team-position {
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 40px;
+            background: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            border-radius: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 992px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+
+            .timeline-year {
+                left: 0;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-building logo-icon"></i>
+                <div class="logo-text">Elite<span>Properties</span></div>
+            </a>
+
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="properties.html" class="nav-link">Properties</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-secondary">Schedule Tour</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Elite Properties</h1>
+            <p>Building legacy through excellence in real estate for over 15 years</p>
+        </div>
+    </section>
+    <!-- Add this section in about.html after page-header -->
+
+    <!-- Personal Introduction Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <img src="images/profile.jfif">
+                </div>
+                <div>
+                    <h2 class="section-title">Zaman Khalil</h2>
+                    <p class="section-subtitle">Manager</p>
+
+                    <div class="mt-30">
+                        <p>As a mathematics graduate with over 7 years in real estate, I bring a unique analytical
+                            approach to property investment and development. My journey began with a passion for numbers
+                            and evolved into creating tangible value through strategic real estate investments.</p>
+
+                        <p>I founded Elite Properties with a simple philosophy: combine mathematical precision with
+                            creative vision to identify and develop properties that deliver exceptional returns. My
+                            background allows me to approach market analysis, property valuation, and investment
+                            strategies with data-driven insights.</p>
+
+                        <p>What sets me apart is my hands-on approach. I'm personally involved in every major project,
+                            from initial land acquisition to final construction, ensuring that our developments meet the
+                            highest standards of quality and profitability.</p>
+
+                        <div class="personal-stats mt-30">
+                            <div class="stat">
+                                <div class="stat-number">7+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">$78.5M</div>
+                                <div class="stat-label">Portfolio Managed</div>
+                            </div>
+                        </div>
+
+                        <a href="contact.html" class="btn mt-30">Schedule Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-subtitle">From humble beginnings to industry leadership</p>
+            </div>
+
+            <div class="grid-2">
+                <div>
+                    <h3 class="mb-20">A Legacy of Excellence</h3>
+                    <p>Founded in 1998 by Muhammad Taimur, Elite Properties began with a single development project and a
+                        vision to transform the real estate industry. What started as a small family business has grown
+                        into a multinational real estate development and investment firm.</p>
+                    <p>Over the past 25 years, we've successfully completed over 50 projects,
+                        delivering exceptional value to our investors and creating landmark properties that define
+                        skylines.</p>
+                    <p>Our journey is marked by strategic expansion, innovative design, and unwavering commitment to
+                        quality. Today, we manage a $78.5 Million portfolio while maintaining the personal touch and
+                        attention to detail that defined our early years.</p>
+                </div>
+                <div>
+                    <img src="images/office.jpg"
+                        alt="Our Story" style="width: 100%; border-radius: 10px; box-shadow: var(--shadow-lg);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section mission-section">
+        <div class="container">
+            <div class="mission-card">
+                <div class="mission-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h2 class="section-title">Our Mission & Vision</h2>
+                <p class="section-subtitle">Driving the future of real estate through innovation and integrity</p>
+
+                <div class="grid-2 mt-50">
+                    <div class="text-center">
+                        <h3 class="mb-20">Our Mission</h3>
+                        <p>To create exceptional real estate value through innovative design, sustainable development,
+                            and strategic investment, delivering superior returns for our clients while positively
+                            impacting communities.</p>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="mb-20">Our Vision</h3>
+                        <p>To be the global benchmark for excellence in real estate development, recognized for
+                            transforming landscapes, creating sustainable communities, and pioneering the future of
+                            urban living.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-subtitle">The principles that guide every decision we make</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>Transparent dealings, ethical practices, and honoring our commitments form the foundation of
+                        every relationship.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Embracing new technologies, sustainable practices, and creative solutions to stay ahead of the
+                        curve.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>Uncompromising quality in design, construction, and service delivery across all projects.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>Building strong partnerships with investors, communities, and stakeholders for mutual success.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Journey</h2>
+                <p class="section-subtitle">Key milestones in our 25-year history</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1998</div>
+                    <div class="timeline-content">
+                        <h3>Company Founded</h3>
+                        <p>Elite Properties established with first residential development project in Lahore.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2005</div>
+                    <div class="timeline-content">
+                        <h3>First Commercial Project</h3>
+                        <p>Successfully completed commercial complex, marking entry into commercial real estate.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2014</div>
+                    <div class="timeline-content">
+                        <h3>International Expansion</h3>
+                        <p>Expanded operations to  Multan with landmark project in Buch Villas,.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2018</div>
+                    <div class="timeline-content">
+                        <h3>$30M Portfolio Milestone</h3>
+                        <p>Achieved $30 million in managed assets, becoming a major player in luxury real estate.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Sustainable Development Initiative</h3>
+                        <p>Launched comprehensive sustainability program across all development projects including DHA Multan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Leadership Team</h2>
+                <p class="section-subtitle">Experienced professionals driving our success</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="images/profile-3.jfif"
+                        alt="John Developer" class="team-image">
+                    <h3>Muhammad Taimur</h3>
+                    <div class="team-position">Founder & CEO</div>
+                    <p>25+ years in real estate development, visionary leader and strategic planner.</p>
+                </div>
+
+                <div class="team-card">
+                    <img src="images/profile.jfif"
+                        alt="Sarah Johnson" class="team-image">
+                    <h3>Zaman Khalil</h3>
+                    <div class="team-position">Manager</div>
+                    <p>Mathematician with the expertise in operational efficiency, and long-term value creation..</p>
+                </div>
+
+                <div class="team-card">
+                    <img src="images/profile-1.jfif"
+                        alt="Michael Chen" class="team-image">
+                    <h3>Khalil Ahmed</h3>
+                    <div class="team-position">Strategic Planner</div>
+                    <p>A tenured professor along with expertise in strategic real estate planning by aligning client goals with market opportunities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Elite Properties</h3>
+                    <p>Premium real estate development and investment firm specializing in luxury properties and commercial developments across global markets.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/muhammad-zaman-khalil-232532383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/zamanbalouch099?igsh=MWduMjhkYWNucTFxZg==" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1C8Nnx26TH/" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Investment Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Property Types</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Luxury Residences</a></li>
+                        <li><a href="#">Commercial Real Estate</a></li>
+                        <li><a href="#">Development Land</a></li>
+                        <li><a href="#">International Properties</a></li>
+                        <li><a href="#">Portfolio Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+    <h3>Contact Info</h3>
+    <ul class="footer-links">
+        <li><i class="fas fa-map-marker-alt"></i> Buch Villas, Near Bosan Road Multan</li>
+        <li><i class="fas fa-phone"></i> +92-3000992897</li>
+        <li><i class="fas fa-mobile-alt"></i> +92 3006332897</li>
+        <li><i class="fas fa-envelope"></i> zamanbalouch099@gmail.com </li>
+        <li><i class="fab fa-whatsapp"></i> WhatsApp: +92-3000992897</li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Elite Properties. All rights reserved. | Professional real estate portfolio website.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        const navbar = document.querySelector('.navbar');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+    </script>
+</body>
+
+</html>

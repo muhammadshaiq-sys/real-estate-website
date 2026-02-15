@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Elite Properties</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-section {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80') no-repeat center center/cover;
+            color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-info h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-size: 18px;
+        }
+        
+        .contact-details {
+            margin-top: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item i {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-item-content h4 {
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .contact-item-content p {
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        .contact-form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .contact-form-container h3 {
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 28px;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .form-success {
+            display: none;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid #22c55e;
+            color: #166534;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .office-hours {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .office-hours h4 {
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .hours-list {
+            list-style: none;
+        }
+        
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .map-container {
+            margin-top: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .map-placeholder {
+            background: #e2e8f0;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-color);
+            font-size: 18px;
+        }
+        
+        .team-intro {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .team-intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .team-intro-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-intro-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-intro-text {
+            margin-top: 30px;
+        }
+        
+        .team-intro-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-item i {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-building logo-icon"></i>
+                <div class="logo-text">Elite<span>Properties</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="properties.html" class="nav-link">Properties</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-secondary">Schedule Tour</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our expert team for personalized real estate solutions</p>
+        </div>
+    </section>
+
+<!-- Contact Section for Multan -->
+<section class="section contact-section">
+    <div class="container">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Our Office in Multan</h2>
+                <p>Visit our office in the prime Buch Villas area of Multan. Our team is available to discuss property investments, development projects, and portfolio management services tailored to the Pakistani real estate market.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="contact-item-content">
+                            <h4 style="color:red">Office Address</h4>
+                            <p>On Bosan Road, near Bahauddin Zakariya University<br>Multan, Punjab <br>Pakistan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="contact-item-content">
+                            <h4 style="color:red">Phone Numbers</h4>
+                            <p>Office: +92 3006332897<br>Mobile: +92-3000992897<br>WhatsApp: +92-3000992897</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="contact-item-content">
+                            <h4 style="color:red">Email Addresses</h4>
+                            <p>zamanbalouch099@gmail.com<br></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="office-hours">
+                    <h4>Office Hours (Pakistan Time)</h4>
+                    <ul class="hours-list">
+                        <li><span>Monday - Friday</span> <span>9:00 AM - 7:00 PM</span></li>
+                        <li><span>Saturday</span> <span>10:00 AM - 5:00 PM</span></li>
+                        <li><span>Sunday</span> <span>11:00 AM - 4:00 PM</span></li>
+                        <li><span>Evening Appointments</span> <span>Available on Request</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="contact-form-container" id="contact-form">
+                <h3>Schedule Property Consultation</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Your Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-control" placeholder="Phone Number with Country Code" required>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" required>
+                            <option value="" disabled selected>Property Interest</option>
+                            <option value="residential">Residential Properties</option>
+                            <option value="commercial">Commercial Properties</option>
+                            <option value="plots">Plots & Land</option>
+                            <option value="investment">Investment Opportunities</option>
+                            <option value="development">Development Projects</option>
+                            <option value="consultation">Portfolio Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Your specific requirements or property preferences" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                            <input type="checkbox" required>
+                            I agree to receive property updates and information
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-accent" style="width: 100%;">Submit Inquiry</button>
+                </form>
+                
+                <div class="form-success" id="formSuccess">
+                    <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 10px;"></i>
+                    <h4>Thank You!</h4>
+                    <p>Your inquiry has been submitted successfully. Our Multan office will contact you within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Map Section for Multan -->
+        <div class="map-container mt-50">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Location in Multan</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">Our office in the prestigious Buch Villas area</p>
+            </div>
+            
+            <div class="map-wrapper">
+                <!-- Google Maps for Buch Villas, Multan -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3471.428744082532!2d71.51177577560943!3d30.19568207486767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x393b35e4f2c2a6c9%3A0x8e99d5c1c5e1e1e1!2sBuch%20Villas%2C%20Multan%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1703926154324!5m2!1sen!2s" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                
+                <div class="map-overlay">
+                    <div class="map-info-card">
+                        <h4><i class="fas fa-map-marker-alt" style="color: #c53030; margin-right: 10px;"></i> Elite Properties Multan</h4>
+                        <p>Buch Villas, Near Bosan Road<br>Multan, Punjab 60000<br>Pakistan</p>
+                        <div class="map-details">
+                            <div class="map-detail-item">
+                                <i class="fas fa-road"></i>
+                                <span>Near ISP</span>
+                            </div>
+                            <div class="map-detail-item">
+                                <i class="fas fa-landmark"></i>
+                                <span>Prestigious residential area</span>
+                            </div>
+                            <div class="map-detail-item">
+                                <i class="fas fa-car"></i>
+                                <span>Parking available onsite</span>
+                            </div>
+                        </div>
+                        <a href="https://maps.google.com/maps?q=Buch+Villas+Multan+Pakistan" target="_blank" class="btn btn-accent" style="margin-top: 15px;">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Nearby Locations in Multan -->
+        <div class="nearby-locations">
+            <h3 class="text-center mb-30">Prime Locations in Multan</h3>
+            <div class="grid-4">
+                <div class="location-card">
+                    <i class="fas fa-university"></i>
+                    <h4>Gulgasht Colony</h4>
+                    <p>5 min drive</p>
+                    <small>Premium residential area</small>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h4>Chenone Road</h4>
+                    <p>10 min drive</p>
+                    <small>Commercial hub</small>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-hospital"></i>
+                    <h4>Nishtar Hospital</h4>
+                    <p>15 min drive</p>
+                    <small>Medical district</small>
+                </div>
+                <div class="location-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>BZU University</h4>
+                    <p>20 min drive</p>
+                    <small>Educational area</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Methods -->
+        <div class="contact-methods mt-50">
+            <div class="grid-3">
+                <div class="contact-method-card">
+                    <div class="method-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Business</h3>
+                    <p>Quick property inquiries and instant responses</p>
+                    <a href="https://wa.me/qr/ICX6FMRWKJH6H1" target="_blank" class="btn btn-secondary">Chat Now</a>
+                </div>
+                
+                <div class="contact-method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-phone-volume"></i>
+                    </div>
+                    <h3>Direct Call</h3>
+                    <p>Speak directly with our property consultants</p>
+                    <a href="tel:+92611234567" class="btn btn-secondary">Call Now</a>
+                </div>
+                
+                <div class="contact-method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Site Visit</h3>
+                    <p>Schedule a property viewing in Multan</p>
+                    <a href="#contact-form" class="btn btn-secondary">Book Visit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+     <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Elite Properties</h3>
+                    <p>Premium real estate development and investment firm specializing in luxury properties and commercial developments across global markets.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/muhammad-zaman-khalil-232532383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/zamanbalouch099?igsh=MWduMjhkYWNucTFxZg==" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1C8Nnx26TH/" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Investment Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Property Types</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Luxury Residences</a></li>
+                        <li><a href="#">Commercial Real Estate</a></li>
+                        <li><a href="#">Development Land</a></li>
+                        <li><a href="#">International Properties</a></li>
+                        <li><a href="#">Portfolio Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+    <h3>Contact Info</h3>
+    <ul class="footer-links">
+        <li><i class="fas fa-map-marker-alt"></i> Buch Villas, Near Bosan Road Multan</li>
+        <li><i class="fas fa-phone"></i> +92-3000992897</li>
+        <li><i class="fas fa-mobile-alt"></i> +92 3006332897</li>
+        <li><i class="fas fa-envelope"></i> zamanbalouch099@gmail.com </li>
+        <li><i class="fab fa-whatsapp"></i> WhatsApp: +92-3000992897</li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Elite Properties. All rights reserved. | Professional real estate portfolio website.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        const navbar = document.querySelector('.navbar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simple form validation
+            const inputs = contactForm.querySelectorAll('input[required], textarea[required], select[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = '#dc2626';
+                } else {
+                    input.style.borderColor = '#e2e8f0';
+                }
+            });
+            
+            if (isValid) {
+                // Show success message
+                formSuccess.style.display = 'block';
+                contactForm.style.display = 'none';
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    contactForm.reset();
+                    contactForm.style.display = 'block';
+                    formSuccess.style.display = 'none';
+                }, 5000);
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Fix property-details links
+        document.querySelectorAll('a[href="property-details.html"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Property details page would show comprehensive information about the property.\n\nFor this demo, you can view the property information on this page.');
+            });
+        });
+    </script>
+</body>
+</html>
