@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Properties | Premium Real Estate Development</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Homepage Specific Styles */
+        .hero-section {
+            padding: 180px 0 100px;
+            background: linear-gradient(rgba(26, 54, 93, 0.85), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .bg-light {
+            background-color: #f8fafc;
+        }
+        
+        .mt-30 {
+            margin-top: 30px;
+        }
+        
+        .mt-50 {
+            margin-top: 50px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #c53030;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .about-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.95)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80') no-repeat center center/cover;
+            color: white;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 30px;
+            height: 100%;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #c53030;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 20px;
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            color: white;
+        }
+        
+        .author-info p {
+            margin: 0;
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        /* Services */
+        .service-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 48px;
+            color: #c53030;
+            margin-bottom: 25px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        /* Property Cards for Homepage */
+        .home-property-card {
+            height: 100%;
+        }
+        
+        .property-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #c53030;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .property-image-container {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .property-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .property-card:hover .property-image-container img {
+            transform: scale(1.05);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-building logo-icon"></i>
+                <div class="logo-text">Elite<span>Properties</span></div>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="properties.html" class="nav-link">Properties</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-secondary">Schedule Tour</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Premium Property Investments & Development</h1>
+                <p class="hero-subtitle">Discover exclusive real estate opportunities with our curated portfolio of luxury properties, commercial spaces, and development projects across prime locations.</p>
+                <div class="hero-buttons">
+                    <a href="properties.html" class="btn">View Portfolio</a>
+                    <a href="contact.html" class="btn btn-outline" style="background-color: transparent; color: white; border-color: white;">Contact Advisor</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive real estate solutions for investors and homeowners</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Property Investment</h3>
+                    <p>Strategic investment opportunities in residential and commercial properties with proven ROI track records.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Development</h3>
+                    <p>End-to-end property development from land acquisition to construction and project management.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Portfolio Management</h3>
+                    <p>Professional management of real estate portfolios for optimal performance and growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Properties</h2>
+                <p class="section-subtitle">A selection of our premium properties currently available</p>
+            </div>
+            
+            <div class="grid-3">
+                <!-- Property 1 -->
+                <div class="property-card home-property-card">
+                    <div class="property-image-container">
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Luxury Villa">
+                        <span class="property-badge">For Sale</span>
+                    </div>
+                    <div class="property-content">
+                        <div class="property-header">
+                            <div class="property-price">Rs.520000000</div>
+                            <div class="property-address">Ocean View buch Villas, Multan</div>
+                        </div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>15 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>15 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>13612.5 sq ft</span>
+                            </div>
+                        </div>
+                        <p>Stunning contemporary villa with panoramic ocean views, infinity pool, and private beach access.</p>
+                        <a href="property-details.html" class="btn" style="width: 100%; margin-top: 15px;">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property-card home-property-card">
+                    <div class="property-image-container">
+                        <img src="images/image-1.jfif" alt="Penthouse">
+                        <span class="property-badge">For Sale</span>
+                    </div>
+                    <div class="property-content">
+                        <div class="property-header">
+                            <div class="property-price">Rs.100000000</div>
+                            <div class="property-address">Phase-1 DHA, Multan</div>
+                        </div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>7 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>6 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>11098.45 sq ft</span>
+                            </div>
+                        </div>
+                        <p>Exclusive penthouse with 360-degree city views, private rooftop terrace, and premium finishes.</p>
+                        <a href="property-details.html" class="btn" style="width: 100%; margin-top: 15px;">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property-card home-property-card">
+                    <div class="property-image-container">
+                        <img src="images/image-2.1.jfif" alt="Commercial Complex">
+                        <span class="property-badge">For Sale</span>
+                    </div>
+                    <div class="property-content">
+                        <div class="property-header">
+                            <div class="property-price">Rs.52000000</div>
+                            <div class="property-address">Smart Housing Multan (Nishtar Block)</div>
+                        </div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-building"></i>
+                                <span>3 floors</span>
+                            </div>
+                            <div class="feature">
+                               <i class="fas fa-bed"></i>
+                                <span>6 beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>85,000 sq ft</span>
+                            </div>
+                        </div>
+                        <p>State-of-the-art commercial complex with LEED certification and prime location in tech district.</p>
+                        <a href="property-details.html" class="btn" style="width: 100%; margin-top: 15px;">View Details</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-50">
+                <a href="properties.html" class="btn btn-secondary">View All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 class="section-title">25 Years of Excellence</h2>
+                    <p> Elite Properties has built a reputation for quality, integrity, and exceptional returns.Our purpose is to provide with a sustainable, high-value properties.</p>
+                    <p>We combine visionary design with meticulous attention to detail, creating spaces that inspire while delivering exceptional returns for our investors.</p>
+                    <div class="stats mt-30">
+                        <div class="stat">
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Properties</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">$50M</div>
+                            <div class="stat-label">Portfolio Value</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">7+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                    <a href="about.html" class="btn mt-30">Learn More About Us</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2073&q=80" alt="About Elite Properties" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Client Testimonials</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">What our clients say about working with us</p>
+            </div>
+            
+            <div class="grid-3">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Elite Properties transformed our investment strategy. Their portfolio management delivered 22% annual returns over the past 5 years."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <h4> Mansoor Arif Kanwar</h4>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The development expertise and attention to detail exceeded our expectations. Our commercial project was delivered ahead of schedule."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RM</div>
+                        <div class="author-info">
+                            <h4>Rana Munawar Ahmad</h4>
+                        
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Professional, transparent, and results-driven. Elite Properties helped us build a diverse real estate portfolio that consistently performs."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AL</div>
+                        <div class="author-info">
+                            <h4>Ali Haider</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Elite Properties</h3>
+                    <p>Premium real estate development and investment firm specializing in luxury properties and commercial developments across global markets.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/muhammad-zaman-khalil-232532383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/zamanbalouch099?igsh=MWduMjhkYWNucTFxZg==" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1C8Nnx26TH/" class="social-link"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Investment Strategy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Property Types</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Luxury Residences</a></li>
+                        <li><a href="#">Commercial Real Estate</a></li>
+                        <li><a href="#">Development Land</a></li>
+                        <li><a href="#">International Properties</a></li>
+                        <li><a href="#">Portfolio Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+    <h3>Contact Info</h3>
+    <ul class="footer-links">
+        <li><i class="fas fa-map-marker-alt"></i> Buch Villas, Near Bosan Road Multan</li>
+        <li><i class="fas fa-phone"></i> +92-3000992897</li>
+        <li><i class="fas fa-mobile-alt"></i> +92 3006332897</li>
+        <li><i class="fas fa-envelope"></i> zamanbalouch099@gmail.com </li>
+        <li><i class="fab fa-whatsapp"></i> WhatsApp: +92-3000992897</li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Elite Properties. All rights reserved. | Professional real estate portfolio website.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        const navbar = document.querySelector('.navbar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+    </script>
+</body>
+</html>
